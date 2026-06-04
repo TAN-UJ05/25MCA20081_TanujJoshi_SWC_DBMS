@@ -20,7 +20,7 @@ eligible_purchases AS (
 eligible_refunds AS (
     SELECT 
         p.transaction_date,  
-        -p.amount AS amount  
+        -r.amount AS amount  
     FROM product_sales r
     JOIN eligible_purchases p ON r.original_transaction_id = p.transaction_id
     WHERE r.type = 'refund'
